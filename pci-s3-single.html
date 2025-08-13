@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PCI S3 Engagement Process | SISA</title>
+  <meta name="description" content="Comprehensive security validation for payment card industry software solutions - PCI S3 engagement process guide"/>
+  <style>
+    :root {
+      --color-white: #fff;
+      --color-black: #000;
+      --primary-blue: #2196f3;
+      --accent-green: #4CAF50;
+      --accent-pink: #E91E63;
+      --accent-yellow: #FFC107;
+      --accent-purple: #9C27B0;
+      --accent-orange: #FF9800;
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Arial,Helvetica,sans-serif; line-height:1.6; }
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                  url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=80') center/cover;
+      padding:80px 20px; text-align:center; color:#fff;
+    }
+    .hero h1 { margin-bottom:10px; font-size:2.5rem; }
+    .hero p { margin-bottom:40px; font-size:1.1rem; }
+    .stage-buttons, .sub-buttons {
+      display:flex; flex-wrap:wrap; gap:12px; justify-content:center;
+    }
+    .btn-stage, .btn-sub {
+      border:none; padding:10px 18px; font-size:1rem; font-weight:bold;
+      border-radius:6px; cursor:pointer; background:var(--primary-blue);
+      color:#fff; transition:transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-stage:hover, .btn-sub:hover { transform:translateY(-3px); box-shadow:0 4px 10px rgba(0,0,0,0.3); }
+    .btn-number { margin-right:6px; }
+    .back-btn { background: var(--accent-purple); margin-bottom:20px; }
+    #content-area { max-width:960px; margin:40px auto; padding:0 20px; }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <h1>PCI S3 Engagement Process</h1>
+    <p>Comprehensive security validation for payment card industry software solutions</p>
+    <div class="stage-buttons">
+      <button class="btn-stage" data-stage="kickoff">Kick Off</button>
+      <button class="btn-stage" data-stage="gap-assessment">Gap Assessment</button>
+      <button class="btn-stage" data-stage="remediation">Remediation</button>
+      <button class="btn-stage" data-stage="final-audit">Final Audit</button>
+      <button class="btn-stage" data-stage="pci-listing">PCI Listing</button>
+    </div>
+  </section>
+
+  <main id="content-area"></main>
+
+  <footer style="text-align:center;padding:30px 0 60px;font-weight:bold;">SISA Information Security</footer>
+
+  <script>
+    const data = {
+      kickoff: {
+        title: "Kick Off",
+        subs: [
+          {
+            id: "kickoff-main",
+            title: "Kick Off",
+            html: `<h2 style='color:#2196F3'>Kick-Off</h2>
+                   <p>The Kick-off call serves to align all stakeholders on the PCI S compliance process and covers the following key points:</p>
+                   <ul>
+                     <li>Develop a project plan with tentative dates</li>
+                     <li>Conduct a detailed discussion on the project scope</li>
+                     <li>Introduce the designated Point of Contact (POC)</li>
+                     <li>Outline the complete PCI S3 listing process</li>
+                   </ul>`
+          },
+          {
+            id: "prereq",
+            title: "Pre-Requisite Documents",
+            html: `<h2 style='color:#2196F3'>Pre-Requisite Documents</h2>
+                   <p>The Payment Software vendor must provide the required documents (approx 37) to comply with PCI S3. To begin the gap assessment, the following documents are required:</p>
+                   <ul>
+                     <li>Security Guidance Document</li>
+                     <li>SDLC Document</li>
+                     <li>Data Flow Diagram</li>
+                   </ul>
+                   <div style='background:#f0e6f6;padding:12px;border-left:4px solid #9C27B0;margin-top:15px;'>
+                     Note: Refer the document checklist for basic understanding on what is required for each document.
+                   </div>`
+          }
+        ]
+      },
+      "gap-assessment": {
+        title: "Gap Assessment",
+        subs: [
+          {
+            id: "app-walkthrough",
+            title: "Application Walkthrough",
+            html: `<h2 style='color:#2196F3'>Application Walkthrough Process</h2>
+                   <p>A comprehensive review of the application's functionality, architecture, and security controls to identify potential gaps in the security posture.</p>
+                   <h3 style="color:#2196F3;">Key Activities:</h3>
+                   <ul>
+                     <li>Application Architecture Review</li>
+                     <li>Business Logic</li>
+                     <li>Data Flow Diagram</li>
+                     <li>Detailed Transaction Flow</li>
+                     <li>Application Walkthrough of Web interface/Standalone Interface/API</li>
+                     <li>Details of Operating System and Database</li>
+                     <li>Application Name and Version Number</li>
+                     <li>POS Device list if applicable</li>
+                     <li>User Management walkthrough</li>
+                     <li>Post walkthrough, SISA shares Code Review Points via email</li>
+                   </ul>`
+          },
+          {
+            id: "source-code-review",
+            title: "Source Code Review",
+            html: `<h2 style="color:#4CAF50">Source Code Analysis</h2>
+                   <p>Based on the application walkthrough and transaction types supported, Code Review Points are drafted to match the application functionality. The application's source code is then examined for PCI compliance.</p>
+                   <h3 style="color:#4CAF50;">Review Methodology:</h3>
+                   <ul>
+                     <li>Deploy in OS & DB listed on PCI Portal</li>
+                     <li>Show code for shared Code Review Points</li>
+                     <li>Demo required for User Management, Key Management, Activity Tracking, Anomaly Detection</li>
+                     <li><b>Ensure at least one responsible developer per relevant application team is available during code review</b></li>
+                   </ul>`
+          },
+          {
+            id: "test",
+            title: "Test Transactions and Forensic Activity",
+            html: `<h2 style="color:#9C27B0">Test Transactions</h2>
+                   <p>Recommended: Only use Test Cards in UAT/Pre-Prod. Do not use live cards.</p>
+                   <ol>
+                     <li>Perform transactions based on Application type</li>
+                     <li>Middleware: Sale, Void, Refund (success & fail)</li>
+                     <li>ATM: Cash Withdrawal, Balance Enquiry, Mini Statement, PIN Change</li>
+                     <li>CMS: Generate embossing file for debit & credit</li>
+                     <li>Recon & Settlement: Generate files, simulate timeout & network errors</li>
+                     <li>Payment Gateway: Approved & Declined transactions</li>
+                   </ol>
+                   <h3 style="color:#9C27B0">Required Forensic Tools</h3>
+                   <div style="display:flex; flex-wrap:wrap;">
+                     <div style="flex:1; padding-right:20px;">
+                       <h4>Windows OS Tools</h4>
+                       <ul>
+                         <li><a href="https://www.magnetforensics.com/resources/magnet-dumpit-for-windows/" target="_blank">DumpIt</a></li>
+                         <li><a href="https://mh-nexus.de/en/hxd/" target="_blank">HexEditor</a></li>
+                         <li><a href="https://www.sleuthkit.org/autopsy/download.php" target="_blank">Autopsy</a></li>
+                         <li><a href="https://www.wireshark.org/#download" target="_blank">Wireshark</a></li>
+                       </ul>
+                     </div>
+                     <div style="flex:1; padding-left:20px;">
+                       <h4>Linux/Ubuntu OS Tools</h4>
+                       <ul>
+                         <li><a href="https://github.com/microsoft/avml/releases" target="_blank">AVML</a></li>
+                         <li><a href="https://www.tcpdump.org/" target="_blank">TCP Dump</a></li>
+                         <li><a href="https://www.gnu.org/software/grep/" target="_blank">GREP Command</a></li>
+                       </ul>
+                     </div>
+                   </div>
+                   <div style="margin-top:15px;padding:12px;background:#f0e6f6;border-left:4px solid #9C27B0;">
+                     Note: Run Wireshark before performing Test Transactions.
+                   </div>`
+          },
+          {
+            id: "db-review",
+            title: "Database Review",
+            html: `<h2 style="color:#FF9800">Database Review</h2>
+                   <ul>
+                     <li>Number of Schemas present</li>
+                     <li>Storage of transaction data</li>
+                     <li>Storage of card numbers</li>
+                     <li>Storage of user passwords & salts</li>
+                     <li>Keys stored in database</li>
+                     <li>Audit logs storage</li>
+                     <li>Database used & version</li>
+                   </ul>`
+          },
+          {
+            id: "action-tracker",
+            title: "Action Tracker Release",
+            html: `<h2 style="color:#E91E63">Action Tracker</h2>
+                   <p>All GAPs identified from the Gap Assessment are collated and uploaded to the SISA Assistant portal.</p>
+                   <h3>Includes:</h3>
+                   <ul>
+                     <li>Observation</li>
+                     <li>Recommendation</li>
+                     <li>Status</li>
+                     <li>Control Objective</li>
+                     <li>Severity</li>
+                   </ul>`
+          }
+        ]
+      },
+      remediation: {
+        title: "Remediation",
+        subs: [
+          {
+            id: "remediation-main",
+            title: "Remediation",
+            html: `<h2 style="color:#E91E63">Remediation</h2>
+                   <ul>
+                     <li>Action Points discussion and explanation</li>
+                     <li>Tentative remediation timelines</li>
+                     <li>Collecting fix evidences</li>
+                   </ul>`
+          },
+          {
+            id: "revalidation",
+            title: "Revalidation",
+            html: `<h2 style="color:#E91E63">Revalidation</h2>
+                   <p>Vendor must fix all Action Points & provide pending docs.</p>
+                   <h3>Activities:</h3>
+                   <ul>
+                     <li>Evidence collection for Action Points</li>
+                     <li>Document collection</li>
+                     <li>Forensic activities</li>
+                   </ul>
+                   <div style="background:#f0e6f6;padding:12px; border-left:4px solid #9C27B0;margin-top:15px;">
+                     Note: Run forensic analysis if Action Points indicate sensitive data in memory, logs, or dumps.
+                   </div>`
+          }
+        ]
+      },
+      "final-audit": {
+        html: `<h2 style='color:#FFC107'>Final Audit</h2>
+               <ul>
+                 <li>Deploy app on intended OS</li>
+                 <li>Forensic analysis of OS</li>
+                 <li>Control verification</li>
+                 <li>Prepare AOV, VRA, ROV</li>
+                 <li>Profile creation</li>
+               </ul>`
+      },
+      "pci-listing": {
+        html: `<h2 style='color:#4CAF50'>PCI Listing Process</h2>
+               <h3>Phases:</h3><ol><li>Pre-screening</li><li>Under Review</li><li>Feedback Loop</li><li>Listed</li></ol>
+               <h3>Required Docs:</h3><ul><li>ROV</li><li>AOV</li><li>VRA</li><li>Security Guidance</li><li>Install Guide</li><li>SDLC Policy</li></ul>
+               <h3>Fees (2025):</h3><p>$3,300 listing, $300 admin, $1,650 high-impact, $550 low-impact.</p>
+               <p><b>Validity:</b> 3 years + annual revalidation</p>`
+      }
+    };
+
+    const contentArea = document.getElementById("content-area");
+
+    function renderStage(stageKey) {
+      const stage = data[stageKey];
+      contentArea.innerHTML = "";
+      if (stage.subs) {
+        const backBtn = document.createElement("button");
+        backBtn.textContent = "← Back to Main Stages";
+        backBtn.className = "btn-sub back-btn";
+        backBtn.onclick = () => { contentArea.innerHTML = ""; };
+        contentArea.appendChild(backBtn);
+
+        const subsContainer = document.createElement("div");
+        subsContainer.className = "sub-buttons";
+        stage.subs.forEach((sub, idx) => {
+          const btn = document.createElement("button");
+          btn.className = "btn-sub";
+          btn.innerHTML = `<span class="btn-number">${idx + 1}.</span>${sub.title}`;
+          btn.onclick = () => renderSub(stageKey, sub);
+          subsContainer.appendChild(btn);
+        });
+        contentArea.appendChild(subsContainer);
+      } else {
+        contentArea.innerHTML = stage.html;
+      }
+    }
+
+    function renderSub(stageKey, sub) {
+      contentArea.innerHTML = "";
+      const backBtn = document.createElement("button");
+      backBtn.textContent = `← Back to ${data[stageKey].title}`;
+      backBtn.className = "btn-sub back-btn";
+      backBtn.onclick = () => renderStage(stageKey);
+      contentArea.appendChild(backBtn);
+
+      const wrapper = document.createElement("div");
+      wrapper.innerHTML = sub.html;
+      contentArea.appendChild(wrapper);
+    }
+
+    document.querySelectorAll(".btn-stage").forEach(btn => {
+      btn.addEventListener("click", () => {
+        renderStage(btn.dataset.stage);
+      });
+    });
+  </script>
+</body>
+</html>
